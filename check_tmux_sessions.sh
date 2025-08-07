@@ -36,7 +36,7 @@ check_tmux_on_host() {
     echo -e "$host: ${RED}SSH Failed or Timeout${RESET}"
 
   # Check for no tmux sessions (common "no server" message)
-  elif echo "$output" | grep -qE "no server running on|error connecting to .*/default"; then
+  elif echo "$output" | grep -qE "failed to connect to server|no server running on|error connecting to .*/default"; then
     echo -e "$host: ${GREEN}No tmux sessions${RESET}"
 
   # If anything else, assume tmux session(s) exist
